@@ -22,3 +22,8 @@ this onboarding exercise.
 
 The CI configuration is in [`.github/workflows/ci.yml`](.github/workflows/ci.yml).
 It triggers on pull requests and prints the marker line.
+
+## Changelog
+
+This section records the notable changes made to this repository. Check back
+here after each exercise to see what has been added or updated.
