@@ -1,0 +1,27 @@
+name: Build Report
+
+on:
+  workflow_dispatch:
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Write build report
+        run: |
+          printf 'build_id=demo-001\n' > build-report.txt
+          printf 'tests_passed=42\n' >> build-report.txt
+          printf 'tests_failed=0\n' >> build-report.txt
+          printf 'coverage_pct=87.5\n' >> build-report.txt
+
+      - name: Print build report to job log
+        run: cat build-report.txt
+
+      - name: Upload build report as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-report
+          path: build-report.txt
